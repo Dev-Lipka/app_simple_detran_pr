@@ -1,5 +1,19 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F2F4EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101412" media="(prefers-color-scheme: dark)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Treino CNH">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Treino CNH PR</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap">
 <style>
@@ -22,11 +36,11 @@
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-body{background:var(--bg);color:var(--fg);font-family:var(--font-b);font-size:17px;line-height:1.5;
+body{margin:0;-webkit-text-size-adjust:100%;background:var(--bg);color:var(--fg);font-family:var(--font-b);font-size:17px;line-height:1.5;
   padding-block:20px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:16px;min-width:0}
 h1,h2,h3{font-family:var(--font-d);font-weight:700;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:.01em}
-h1{font-size:44px} h2{font-size:30px} h3{font-size:22px;text-transform:uppercase;letter-spacing:.05em}
+h1{font-size:clamp(34px,10.5vw,44px)} h2{font-size:clamp(25px,7.5vw,30px)} h3{font-size:22px;text-transform:uppercase;letter-spacing:.05em}
 p{margin:0}
 .muted{color:var(--muted)} .small{font-size:14px}
 .label{font-family:var(--font-d);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
@@ -34,23 +48,23 @@ p{margin:0}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
 .stack{display:flex;flex-direction:column;gap:12px;min-width:0}
 .rowx{display:flex;gap:12px;flex-wrap:wrap;align-items:center;min-width:0}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px}
 .stat{display:flex;flex-direction:column;gap:2px}
 .stat b{font-family:var(--font-d);font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
 
-.btn{font-family:var(--font-d);font-weight:700;font-size:21px;letter-spacing:.05em;text-transform:uppercase;min-height:56px;
+.btn{touch-action:manipulation;font-family:var(--font-d);font-weight:700;font-size:21px;letter-spacing:.05em;text-transform:uppercase;min-height:56px;
   border-radius:12px;border:2px solid transparent;padding:0 22px;cursor:pointer;color:var(--fg);background:transparent}
 .btn.primary{background:var(--sign);color:var(--on-sign)}
 .btn.ghost{border-color:var(--line)}
 .btn.sm{min-height:44px;font-size:17px;padding:0 16px}
 .btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,.row:focus-visible,.opt:focus-visible{outline:3px solid var(--info);outline-offset:3px}
 .btn[disabled]{opacity:.55;cursor:not-allowed}
-.link{background:none;border:0;color:var(--muted);text-decoration:underline;font:inherit;font-size:14px;cursor:pointer;padding:8px 0}
+.link{background:none;border:0;color:var(--muted);text-decoration:underline;font:inherit;font-size:14px;cursor:pointer;padding:8px 0;min-height:44px;display:inline-flex;align-items:center;touch-action:manipulation}
 
 .bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden}
 .bar>i{display:block;height:100%;background:var(--ok);width:0;border-radius:99px;transition:width .3s}
 
-.row{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);
+.row{touch-action:manipulation;display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);
   border-radius:12px;padding:14px 16px;cursor:pointer;color:var(--fg);font:inherit;min-height:64px}
 .row:hover{border-color:var(--muted)}
 .dot{width:14px;height:14px;border-radius:50%;flex:none}
@@ -62,14 +76,14 @@ p{margin:0}
 .sbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-d);font-weight:600;text-transform:uppercase;letter-spacing:.07em;font-size:15px}
 .concept{font-size:20px;line-height:1.55;padding:22px}
-.q{font-size:32px;line-height:1.12}
-.qq{font-size:25px;line-height:1.22}
+.q{font-size:clamp(24px,7.2vw,32px);line-height:1.12}
+.qq{font-size:clamp(20px,5.8vw,25px);line-height:1.22}
 .ring{position:relative;width:76px;height:76px;flex:none}
 .ring svg{width:76px;height:76px;transform:rotate(-90deg)}
 .ring .tx{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--font-d);font-weight:700;font-size:28px;font-variant-numeric:tabular-nums}
 input[type=text],input[type=password],input[type=number],select,textarea{font:inherit;font-size:22px;width:100%;min-height:56px;padding:10px 14px;border-radius:12px;
   border:2px solid var(--line);background:var(--surface);color:var(--fg)}
-textarea{font-size:15px;min-height:120px;resize:vertical}
+textarea{font-size:16px;min-height:120px;resize:vertical}
 input.cfg{font-size:18px;min-height:46px;max-width:120px}
 .fb{border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
 .fb.ok{background:var(--okbg);color:var(--ok)} .fb.bad{background:var(--badbg);color:var(--bad)}
@@ -86,7 +100,7 @@ input.cfg{font-size:18px;min-height:46px;max-width:120px}
 .tile img{display:block;height:150px;width:auto;max-width:100%;object-fit:contain}
 .tile.tall img{height:190px}
 .opts{display:flex;flex-direction:column;gap:10px}
-.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;min-height:60px;padding:14px 16px;border-radius:12px;
+.opt{touch-action:manipulation;display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;min-height:60px;padding:14px 16px;border-radius:12px;
   border:2px solid var(--line);background:var(--surface);color:var(--fg);font:inherit;font-size:18px;line-height:1.35;cursor:pointer}
 .opt:hover{border-color:var(--muted)}
 .opt .k{flex:none;width:30px;height:30px;border-radius:8px;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;
@@ -129,8 +143,12 @@ details summary{cursor:pointer;font-family:var(--font-d);text-transform:uppercas
 .badge .bi{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:700}
 .badge.on{opacity:1;border-color:var(--sign)}
 .badge.on .bi{background:var(--sign);border-color:var(--sign);color:var(--on-sign)}
+@media (max-width:380px){.row{padding:12px}.row .go{display:none}.card{padding:14px}.concept{padding:16px;font-size:18px}.btn{font-size:19px;padding:0 16px}.stat b{font-size:30px}.tile img{height:130px}.tile.tall img{height:160px}.opt{font-size:17px;padding:12px}.ring{width:64px;height:64px}.ring svg{width:64px;height:64px}.ring .tx{font-size:24px}}
+@media (max-height:480px){body{padding-block:10px}.wrap{gap:12px}.tile img{height:110px}.tile.tall img{height:130px}}
 @media (prefers-reduced-motion:reduce){.xp,.up,.fb.ok,.fb.bad,.combo{animation:none}#toast{transition:none}}
 </style>
+</head>
+<body>
 
 <div class="wrap" id="app">
   <section id="v-login" class="stack" hidden></section>
@@ -245,7 +263,7 @@ function prefixOf(t){if(t.length<=110)return t;var w=t.split(" "),o="";for(var i
 
 /* ---------- Estado salvo ---------- */
 var KEY="treinoCNHPR_v2";
-function defState(){return {cfg:{ans:60,mcq:40,sess:15,read:8,goal:20,pin:""},cards:{},sessions:[],auth:{name:"",h:"",salt:"",fails:0,lock:0},game:{xp:0,badges:{},goalDay:"",sound:true},sync:{url:"",key:""},outbox:[]}}
+function defState(){return {cfg:{ans:60,mcq:40,sess:15,read:8,goal:20,pin:""},cards:{},sessions:[],auth:{name:"",h:"",salt:"",fails:0,lock:0},game:{xp:0,badges:{},goalDay:"",sound:true},sync:{url:"",key:"",cors:null,last:""},outbox:[]}}
 function fix(o){var d=defState();o.cfg=Object.assign(d.cfg,o.cfg||{});o.auth=Object.assign(d.auth,o.auth||{});o.game=Object.assign(d.game,o.game||{});o.game.badges=o.game.badges||{};o.sync=Object.assign(d.sync,o.sync||{});o.outbox=Array.isArray(o.outbox)?o.outbox:[];o.cards=o.cards||{};o.sessions=o.sessions||[];return o}
 function load(){try{var j=localStorage.getItem(KEY);if(j){return fix(JSON.parse(j))}
   var old=localStorage.getItem("treinoCNHPR_v1");if(old){var p=JSON.parse(old),d2=defState();d2.cfg=Object.assign(d2.cfg,p.cfg||{});d2.sessions=p.sessions||[];return d2}}catch(e){}return defState()}
@@ -288,7 +306,7 @@ function renderHome(){
   $("v-home").innerHTML=
    '<div class="rowx" style="justify-content:space-between;flex-wrap:nowrap"><span class="label">Olá, '+esc(S.auth.name||"aluno")+'</span><span class="rowx" style="gap:14px;flex-wrap:nowrap"><button class="link" id="sndBtn" type="button">'+(S.game.sound?'Som: ligado':'Som: desligado')+'</button><button class="link" id="lockBtn" type="button">Sair</button></span></div>'+
    '<header class="stack"><span class="label">Prova teórica do Detran-PR</span><h1>Treino CNH PR</h1></header>'+
-   lvlCard()+
+   installHtml()+lvlCard()+
    '<div class="card stack"><div class="rowx" style="justify-content:space-between"><span class="label">Hoje</span><span class="small muted num">'+(streak()?streak()+' dia(s) seguidos':'Sem sequência ainda')+'</span></div>'+
    '<div class="grid2"><div class="stat"><b>'+fmtMin(ts.act)+'</b><span class="small muted">de estudo ativo</span></div><div class="stat"><b>'+ts.right+' / '+g+'</b><span class="small muted">acertos na meta</span></div></div>'+
    '<div class="bar" role="progressbar" aria-valuenow="'+pct+'" aria-valuemin="0" aria-valuemax="100"><i style="width:'+pct+'%"></i></div></div>'+
@@ -302,7 +320,7 @@ function renderHome(){
   $("goAll").onclick=function(){startSession(null)};
   $("goTutor").onclick=openTutor;
   $("sndBtn").onclick=toggleSound;
-  $("lockBtn").onclick=function(){setUnlocked(false);renderLogin("login")};
+  $("lockBtn").onclick=function(){setUnlocked(false);renderLogin("login")};bindInstall();
   Array.prototype.forEach.call(document.querySelectorAll("#v-home .row"),function(b){b.onclick=function(){startSession(b.dataset.t)}});
   views("home")}
 
@@ -360,7 +378,7 @@ function renderAsk(){
     Array.prototype.forEach.call(document.querySelectorAll("#opts .opt"),function(b){b.onclick=function(){submitAns(parseInt(b.dataset.i,10),false)}});
   }else{
     html+='<div class="rowx" style="flex-wrap:nowrap;align-items:flex-start;gap:14px">'+ringHtml()+'<h2 class="q" style="flex:1;min-width:0;text-transform:none;letter-spacing:0">'+esc(qText())+'</h2></div>'+
-      '<form id="f" class="stack" autocomplete="off"><input id="ans" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Sua resposta" placeholder="Digite sua resposta"><button class="btn primary" type="submit">Responder</button></form>'+
+      '<form id="f" class="stack" autocomplete="off"><input id="ans" type="text" enterkeyhint="send" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Sua resposta" placeholder="Digite sua resposta"><button class="btn primary" type="submit">Responder</button></form>'+
       '<p class="small muted">Digite com suas palavras. Colar texto está desativado.</p>'+foot();
     $("v-session").innerHTML=html;
     var inp=$("ans");noPaste(inp);inp.focus();
@@ -399,7 +417,7 @@ function submitAns(val,timeout){
     var quote=card.k==="q"?'<p class="quote">'+esc(prefixOf(card.o))+'</p>':'';
     $("v-session").innerHTML=head()+imgsHtml()+
     '<div class="fb bad" role="alert"><h2>'+(timeout?'Tempo esgotado':'Errado')+'</h2><p class="small muted">'+esc(qText())+'</p><p class="ans"><b>Resposta certa:</b> '+esc(modelAns())+'</p>'+why+'</div>'+
-    '<form id="f2" class="stack" autocomplete="off"><label class="label" for="cp">'+inst+'</label>'+quote+'<input id="cp" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><p id="cpm" class="small warn" hidden></p><button class="btn primary" type="submit">Confirmar</button></form>'+foot();
+    '<form id="f2" class="stack" autocomplete="off"><label class="label" for="cp">'+inst+'</label>'+quote+'<input id="cp" type="text" enterkeyhint="send" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><p id="cpm" class="small warn" hidden></p><button class="btn primary" type="submit">Confirmar</button></form>'+foot();
     var cp=$("cp");noPaste(cp);cp.focus();
     $("f2").onsubmit=function(e){e.preventDefault();
       if(copyOk(cp.value)){var up=grantXP(3);save();sfx("click");toast("+3 XP por corrigir");if(up)levelUp(up);reinsert();nextCard()}
@@ -508,6 +526,22 @@ function tick(){var cv=$("fx"),c=cv.getContext("2d");c.clearRect(0,0,cv.width,cv
   parts.forEach(function(p){p.vy+=0.28;p.x+=p.vx;p.y+=p.vy;p.vx*=0.99;p.rot+=p.vr;p.l--;c.save();c.globalAlpha=Math.min(1,p.l/25);c.translate(p.x,p.y);c.rotate(p.rot);c.fillStyle=p.c;c.fillRect(-p.r,-p.r/2,p.r*2,p.r);c.restore()});
   if(parts.length){raf=requestAnimationFrame(tick)}else{raf=0;c.clearRect(0,0,cv.width,cv.height)}}
 
+/* ---------- Instalar como app (só na versão hospedada) ---------- */
+var PWA=true,deferredInstall=null;
+function standalone(){try{return (window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true}catch(e){return false}}
+function iosDev(){return /iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1)}
+function instOff(){try{return localStorage.getItem("treinoInstOff")==="1"}catch(e){return false}}
+function installHtml(){if(!PWA||standalone()||instOff())return "";
+  if(deferredInstall)return '<div class="card stack"><h3>Instale o app</h3><p class="small muted">Abre em tela cheia, direto da tela inicial, e funciona sem internet.</p><div class="rowx"><button class="btn primary sm" id="instBtn" type="button">Instalar app</button><button class="link" id="instNo" type="button">Agora não</button></div></div>';
+  if(iosDev())return '<div class="card stack"><h3>Instale o app</h3><p class="small muted">No iPhone: toque em Compartilhar (o quadrado com uma seta) e depois em Adicionar à Tela de Início. Faça isso antes de começar a estudar: o progresso feito no Safari não passa para o app.</p><button class="link" id="instNo" type="button">Entendi</button></div>';
+  return ""}
+function bindInstall(){var b=$("instBtn"),n=$("instNo");
+  if(b)b.onclick=function(){if(!deferredInstall)return;deferredInstall.prompt();deferredInstall.userChoice.then(function(){deferredInstall=null;renderHome()},function(){})};
+  if(n)n.onclick=function(){try{localStorage.setItem("treinoInstOff","1")}catch(e){}renderHome()}}
+window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();deferredInstall=e;if(!$("v-home").hidden)renderHome()});
+window.addEventListener("appinstalled",function(){deferredInstall=null;if(!$("v-home").hidden)renderHome()});
+if(PWA&&"serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+
 /* ---------- Acesso do aluno (código de 4 números neste aparelho) ---------- */
 var unlocked=false;try{unlocked=sessionStorage.getItem("treinoOK")==="1"}catch(e){}
 function setUnlocked(v){unlocked=v;try{if(v)sessionStorage.setItem("treinoOK","1");else sessionStorage.removeItem("treinoOK")}catch(e){}}
@@ -561,14 +595,25 @@ function renderLogin(mode){
 
 /* ---------- Envio automático das sessões para a planilha do tutor ---------- */
 function pad(n){return String(n).padStart(2,"0")}
-function syncOn(){return /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(S.sync.url||"")}
-function sendOne(p){return fetch(S.sync.url,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(p)})}
-function payload(s,assunto){var d=new Date();return {chave:S.sync.key||"",ts:d.getTime(),data:pad(d.getDate())+"/"+pad(d.getMonth()+1)+"/"+d.getFullYear(),hora:pad(d.getHours())+":"+pad(d.getMinutes()),aluno:S.auth.name||"",assunto:assunto,
+var SYNC_RE=/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/;
+function syncOn(){return SYNC_RE.test(S.sync.url||"")}
+function body(p){return JSON.stringify(Object.assign({},p,{chave:S.sync.key||""}))}
+function postNoCors(p){return fetch(S.sync.url,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:body(p)}).then(function(){return "enviado"})}
+function postCors(p){return fetch(S.sync.url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:body(p)}).then(function(r){return r.text()}).then(function(t){return String(t).trim().slice(0,300)})}
+function payload(s,assunto){var d=new Date();return {ts:d.getTime(),data:pad(d.getDate())+"/"+pad(d.getMonth()+1)+"/"+d.getFullYear(),hora:pad(d.getHours())+":"+pad(d.getMinutes()),aluno:S.auth.name||"",assunto:assunto,
   ativoMin:Math.round(s.active/6)/10,respondidas:s.answered,acertos:s.right,erros:s.wrong,distracoes:s.distr,saidasDaTela:s.leaves,xpSessao:s.xp,xpTotal:S.game.xp,nivel:lvlOf(S.game.xp),melhorCombo:s.bestCombo,concluidos:s.mastered}}
+function explain(res){
+  if(res==="ok")return "Funcionou. O script gravou a linha TESTE na planilha. Pode apagar essa linha.";
+  if(/chave/i.test(res))return "O script recebeu, mas a chave não confere. Use exatamente a mesma chave no script (CHAVE) e aqui. Depois de mudar o script, crie uma nova implantação.";
+  if(/planilha/i.test(res))return "O script não está ligado a uma planilha. Abra a planilha, vá em Extensões → Apps Script e cole o código lá.";
+  if(res.charAt(0)==="<")return "O Google devolveu uma página de login ou de erro. Em Implantar → Gerenciar implantações, \"Quem pode acessar\" precisa ser \"Qualquer pessoa\".";
+  return "O script respondeu: "+res}
 var flushing=false;
 function flush(){if(flushing||!syncOn()||!S.outbox.length||navigator.onLine===false)return;flushing=true;
-  var item=S.outbox[0];
-  try{sendOne(item).then(function(){S.outbox.shift();save();flushing=false;flush()},function(){flushing=false})}catch(e){flushing=false}}
+  var item=S.outbox[0],conf=S.sync.cors===true;
+  try{(conf?postCors(item):postNoCors(item)).then(function(res){
+      if(!conf||res==="ok"){S.outbox.shift();S.sync.last="ok";save();flushing=false;flush()}
+      else{S.sync.last=res;save();flushing=false}},function(){flushing=false})}catch(e){flushing=false}}
 function queueSession(s){if(!syncOn())return;S.outbox.push(payload(s,s.sel?GROUPS[s.sel].n:"Sessão do dia"));if(S.outbox.length>200)S.outbox=S.outbox.slice(-200);save();flush()}
 window.addEventListener("online",flush);
 
@@ -619,10 +664,11 @@ function renderTutor(){
    '<div class="card stack"><span class="label">Últimas sessões</span><div class="tw"><table><tr><th>Quando</th><th>Ativo</th><th>Acertos</th><th>Distrações</th></tr>'+ss+'</table></div></div>'+
    '<div class="card stack"><span class="label">Relatório para enviar</span><textarea id="rp" readonly>'+esc(report)+'</textarea><div class="rowx"><button class="btn primary sm" id="cr" type="button">Copiar relatório</button><span id="cm" class="small muted" aria-live="polite"></span></div></div>'+
    '<div class="card stack"><span class="label">Envio automático para a planilha</span><p class="small muted">Ao fim de cada sessão, o app envia nome, data, tempo ativo, acertos, erros, distrações e XP para a sua planilha do Google. O aluno vê um aviso na tela inicial.</p>'+
-    '<label class="f">Endereço do script (termina em /exec)<input class="cfg" id="s1" type="text" style="max-width:none;font-size:15px" autocomplete="off" autocapitalize="off" spellcheck="false" value="'+esc(S.sync.url||"")+'"></label>'+
-    '<label class="f">Chave<input class="cfg" id="s2" type="text" style="max-width:none;font-size:15px" autocomplete="off" autocapitalize="off" spellcheck="false" value="'+esc(S.sync.key||"")+'"></label>'+
+    '<label class="f">Endereço do script (termina em /exec)<input class="cfg" id="s1" type="text" style="max-width:none;font-size:16px" autocomplete="off" autocapitalize="off" spellcheck="false" value="'+esc(S.sync.url||"")+'"></label>'+
+    '<label class="f">Chave<input class="cfg" id="s2" type="text" style="max-width:none;font-size:16px" autocomplete="off" autocapitalize="off" spellcheck="false" value="'+esc(S.sync.key||"")+'"></label>'+
     '<div class="rowx"><button class="btn primary sm" id="ssv" type="button">Salvar</button><button class="btn ghost sm" id="stt" type="button">Enviar teste</button></div>'+
-    '<p class="small muted" id="sst" aria-live="polite">'+(syncOn()?'Envio ligado. Pendentes: '+S.outbox.length+'.':'Envio desligado.')+'</p></div>'+
+    '<p class="small muted" id="sst" aria-live="polite">'+(syncOn()?'Envio ligado. Pendentes: '+S.outbox.length+'.':'Envio desligado.')+'</p>'+
+    '<details><summary>Não apareceu na planilha?</summary><div class="stack small muted" style="margin-top:8px"><p>1. A chave do script (CHAVE) e a daqui precisam ser idênticas.</p><p>2. Depois de mudar o código do script, crie uma nova implantação: Implantar → Gerenciar implantações → Editar → Nova versão.</p><p>3. "Quem pode acessar" precisa ser "Qualquer pessoa".</p><p>4. Abra o script pela planilha (Extensões → Apps Script). A aba Execuções do script mostra se o envio chegou e qual foi o erro.</p><p>5. Abra o endereço /exec no navegador: deve aparecer "Treino CNH PR: endereço ativo."</p></div></details></div>'+
    '<div class="card stack"><span class="label">Configurações</span><div class="rowx">'+
     '<label class="f">Segundos por resposta digitada<input class="cfg" id="c1" type="number" min="15" max="180" value="'+S.cfg.ans+'"></label>'+
     '<label class="f">Segundos por questão (A–D)<input class="cfg" id="c6" type="number" min="15" max="180" value="'+S.cfg.mcq+'"></label>'+
@@ -641,12 +687,17 @@ function renderTutor(){
     try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){$(out).textContent=msg},fail)}else{fail()}}catch(e){fail()}}
   $("cr").onclick=function(){copy("rp","Relatório copiado.","cm")};
   function saveSync(){var u=$("s1").value.trim(),k=$("s2").value.trim(),m=$("sst");
-    if(u&&!/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(u)){m.textContent="Endereço inválido. Ele começa com https://script.google.com/macros/s/ e termina em /exec.";return false}
+    if(u&&!SYNC_RE.test(u)){m.textContent="Endereço inválido. Ele começa com https://script.google.com/macros/s/ e termina em /exec.";return false}
+    if(u!==S.sync.url){S.sync.cors=null}
     S.sync.url=u;S.sync.key=k;save();m.textContent=u?"Salvo. Envio ligado. Pendentes: "+S.outbox.length+".":"Salvo. Envio desligado.";if(u)flush();return true}
   $("ssv").onclick=saveSync;
   $("stt").onclick=function(){if(!saveSync())return;var m=$("sst");if(!syncOn()){m.textContent="Cole o endereço do script e toque em Salvar primeiro.";return}
-    var z={active:0,answered:0,right:0,wrong:0,distr:0,leaves:0,xp:0,bestCombo:0,mastered:0};
-    try{sendOne(payload(z,"TESTE (pode apagar)")).then(function(){m.textContent="Teste enviado. Confira se apareceu uma linha com TESTE na planilha."},function(){m.textContent="Não consegui enviar. Verifique a internet e o endereço."})}catch(e){m.textContent="Não consegui enviar. Verifique a internet e o endereço."}};
+    var z={active:0,answered:0,right:0,wrong:0,distr:0,leaves:0,xp:0,bestCombo:0,mastered:0},pl=payload(z,"TESTE (pode apagar)");
+    m.textContent="Enviando teste…";
+    postCors(pl).then(function(res){S.sync.cors=true;S.sync.last=res;save();m.textContent=explain(res);if(res==="ok")flush()},function(){
+      S.sync.cors=false;save();
+      postNoCors(pl).then(function(){m.textContent="Enviado, mas o Google não deixou o app ler a resposta. Confira se apareceu a linha TESTE na planilha. Se não apareceu, veja \"Não apareceu na planilha?\" abaixo."},
+        function(){m.textContent="Não consegui enviar. Verifique a internet e o endereço."})})};
   $("cb").onclick=function(){copy("bk","Backup copiado.","im2")};
   $("cs").onclick=function(){var cl=function(id,a,b,d){var n=parseInt($(id).value,10);return isNaN(n)?d:Math.min(b,Math.max(a,n))};
     S.cfg.ans=cl("c1",15,180,60);S.cfg.mcq=cl("c6",15,180,40);S.cfg.sess=cl("c2",5,60,15);S.cfg.read=cl("c3",3,60,8);S.cfg.goal=cl("c4",5,100,20);
@@ -663,3 +714,6 @@ function renderTutor(){
 boot();
 })();
 </script>
+
+</body>
+</html>
